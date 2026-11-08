@@ -1,1 +1,5 @@
+# 3. ONLY allow files with the .c extension
 !*.c
+
+# 4. Make sure Git tracks your gitignore file itself
+!.gitignore
