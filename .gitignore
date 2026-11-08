@@ -1,3 +1,8 @@
+*
+#allow dirctories
+!*/
+
+
 # 3. ONLY allow files with the .c extension
 !*.c
 
