@@ -1,30 +1,30 @@
 #include <stdio.h>
+#include <stdlib.h>
+//this question follow greedy naturally 
+//measn we no need to explicitly choose maximum it choose automaitcally
+//beacuse when we go high bit to  lower bit it choose maximum ot minimum
 
-void solve(int index, int selected, int arr[]) {
-
-    if (index == 4) {
-        if (selected == 3) {
-            for (int i = 0; i < 4; i++)
-                printf("%d ", arr[i]);
-
-            printf("\n");
-        }
-        return;
-    }
-
-    // Select current column
-    arr[index] = 1;
-    solve(index + 1, selected + 1, arr);
-
-    // Skip current column
-    arr[index] = 0;
-    solve(index + 1, selected, arr);
-}
-
-int main() {
-    int arr[4] = {0};
-
-    solve(0, 0, arr);
-
-    return 0;
+int main(){
+	int t;
+	scanf("%d", &t);
+	while(t--){
+		int n,k;
+	scanf("%d %d", &n, &k);
+	int arr[n]; 
+	for(int i = 0; i < n;i++) scanf("%d", arr + i);
+	for(int i = 30 ; i >= 0 ; i--){
+		int cost = 0;
+		for(int j = 0 ; j < n; j++) if(!(arr[j] & (1 << i))) cost++; // will check set bit count
+		if(cost <= k) {
+			k = k -cost;
+			for(int j = 0;j < n; j++){
+				arr[j] |= 1 << i;
+			}
+		}
+	}
+	int ans = arr[0];
+	for(int i  = 1; i < n; i++) ans &= arr[i];
+	printf("%d\n", ans);
+	}
+	
 }
