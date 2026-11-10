@@ -21,7 +21,7 @@ int main(){
 				arr[j] |= 1 << i;
 			}
 		}
-	}
+	}		
 	int ans = arr[0];
 	for(int i  = 1; i < n; i++) ans &= arr[i];
 	printf("%d\n", ans);
