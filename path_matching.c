@@ -4,6 +4,23 @@ int top;
 // or recursive calls
 // becasue we can check on previous proccessed value;
 
+int my_strlen(const char * str){
+    int count = 0;
+    for(int i = 0; str[i] != '\0'; i++){ count++;
+    return count;
+}
+
+
+char * my_strdup(const char * str){
+    int len_of_str = my_strlen(str);
+    char * return_string =  malloc(sizeof(char)  * (len_of_str + 1));
+    for(int i = 0; str[i] != '\0'; i++) return_string[i] = str[i];
+    return_string[i] = '\0';
+    return return_string;
+
+}
+
+
 char* simplifyPath(char* path) {
     int top = -1;
     int i = 0;
